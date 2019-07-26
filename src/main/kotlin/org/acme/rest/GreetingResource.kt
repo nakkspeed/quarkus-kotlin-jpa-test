@@ -8,12 +8,12 @@ import javax.ws.rs.Produces
 import javax.ws.rs.core.MediaType
 
 @Path("/greeting")
+@Produces(MediaType.APPLICATION_JSON)
 class GreetingResource {
 
     @Inject
     var service: SantaClausService? = null
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    fun hello() = service!!.createGift("cat").name
+    fun hello() = service!!.createGift("cat")
 }
