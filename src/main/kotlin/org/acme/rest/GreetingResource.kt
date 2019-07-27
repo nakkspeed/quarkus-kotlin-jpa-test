@@ -12,6 +12,9 @@ class GreetingResource {
     @Inject
     var service: SantaClausService? = null
 
+    @Inject
+    var nestedEntityService: NestedEntityService? = null
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     fun hello() = "hello"
@@ -20,4 +23,9 @@ class GreetingResource {
     @Path("/gift")
     @Produces(MediaType.APPLICATION_JSON)
     fun gift() = service!!.createGift("cat")
+
+    @GET
+    @Path("/parent/create")
+    @Produces(MediaType.APPLICATION_JSON)
+    fun createParent() = nestedEntityService!!.createTreeEntity()
 }
