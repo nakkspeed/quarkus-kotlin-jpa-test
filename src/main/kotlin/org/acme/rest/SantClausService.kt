@@ -30,6 +30,8 @@ class Gift(val name: String,
 @Access(AccessType.FIELD)
 class BusinessDate(val date: LocalDate) {
 
+    // Hibernate の AccessType.FIELD のスキャン対象外
+    // JAX-RS は算出プロパティもスキャンする
     val year: Int
         get() = date.year
 
