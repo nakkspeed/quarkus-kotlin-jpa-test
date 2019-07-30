@@ -28,4 +28,9 @@ class GreetingResource {
     @Path("/parent/create")
     @Produces(MediaType.APPLICATION_JSON)
     fun createParent() = nestedEntityService!!.createTreeEntity()
+
+    @GET
+    @Path("/parent/find")
+    @Produces(MediaType.APPLICATION_JSON)
+    fun findParent() = nestedEntityService!!.getEntity()
 }
